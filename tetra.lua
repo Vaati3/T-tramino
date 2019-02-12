@@ -112,18 +112,18 @@ function tetra:colision()
 		if (e.y1 == self.y1) then
 			return (true);
 		end
-		if ((self.y1 + 8 >= e.y1 and self.x1 == e.x1) or (self.y2 + 8 >= e.y1 and self.x2 == e.x1) or (self.y3 + 8 >= e.y1 and self.x3 == e.x1) or (self.y4 + 8 >= e.y1 and self.x4 == e.x1)) then
+		if ((self.y1 + 8 >= e.y1 and self.y1 + 8 < e.y1 + 8 and self.x1 == e.x1) or (self.y2 + 8 >= e.y1 and self.y2 + 8 < e.y1 + 8 and self.x2 == e.x1) or (self.y3 + 8 >= e.y1 and self.y3 + 8 < e.y1 + 8 and self.x3 == e.x1) or (self.y4 + 8 >= e.y1 and self.y4 + 8 < e.y1 + 8 and self.x4 == e.x1)) then
 			return (false)
 		end
-		if ((self.y1 + 8 >= e.y2 and self.x1 == e.x2) or (self.y2 + 8 >= e.y2 and self.x2 == e.x2) or (self.y3 + 8 >= e.y2 and self.x3 == e.x2) or (self.y4 + 8 >= e.y2 and self.x4 == e.x2)) then
+		if ((self.y1 + 8 >= e.y2 and self.y1 + 8 < e.y2 + 8 and self.x1 == e.x2) or (self.y2 + 8 >= e.y2 and self.y2 + 8 < e.y2 + 8 and self.x2 == e.x2) or (self.y3 + 8 >= e.y2 and self.y3 + 8 < e.y2 + 8 and self.x3 == e.x2) or (self.y4 + 8 >= e.y2 and self.y4 + 8 < e.y2 + 8 and self.x4 == e.x2)) then
 			return (false)
 		end
-		if ((self.y1 + 8 >= e.y3 and self.x1 == e.x3) or (self.y2 + 8 >= e.y3 and self.x2 == e.x3) or (self.y3 + 8 >= e.y3 and self.x3 == e.x3) or (self.y4 + 8 >= e.y3 and self.x4 == e.x3)) then
+		if ((self.y1 + 8 >= e.y3 and self.y1 + 8 < e.y3 + 8 and self.x1 == e.x3) or (self.y2 + 8 >= e.y3 and self.y2 + 8 < e.y3 + 8 and self.x2 == e.x3) or (self.y3 + 8 >= e.y3 and self.y3 + 8 < e.y3 + 8 and self.x3 == e.x3) or (self.y4 + 8 >= e.y3 and self.y4 + 8 < e.y3 + 8 and self.x4 == e.x3)) then
 			return (false)
 		end
-		if ((self.y1 + 8 >= e.y4 and self.x1 == e.x4) or (self.y2 + 8 >= e.y4 and self.x2 == e.x4) or (self.y3 + 8 >= e.y4 and self.x3 == e.x4) or (self.y4 + 8 >= e.y4 and self.x2 == e.x4)) then
+		if ((self.y1 + 8 >= e.y4 and self.y1 + 8 < e.y4 + 8 and self.x1 == e.x4) or (self.y2 + 8 >= e.y4 and self.y2 + 8 < e.y4 + 8 and self.x2 == e.x4) or (self.y3 + 8 >= e.y4 and self.y3 + 8 < e.y4 + 8 and self.x3 == e.x4) or (self.y4 + 8 >= e.y4 and self.y4 + 8 < e.y4 + 8 and self.x2 == e.x4)) then
 			return (false)
-	 end
+		end
 	end
 	return (true)
 end
@@ -148,10 +148,16 @@ function tetra:update()
 			self.x4 -= 8
 		end
 		if btn(3) then
-			self.y1 += 1;
-			self.y2 += 1;
-			self.y3 += 1;
-			self.y4 += 1;
+			self.y1 += 2;
+			self.y2 += 2;
+			self.y3 += 2;
+			self.y4 += 2;
+			if (self:colision() == false) then
+				self.y1 -= 2;
+				self.y2 -= 2;
+				self.y3 -= 2;
+				self.y4 -= 2;
+			end
 		end
 	end
 	if (col == false and self.mv != 0) then

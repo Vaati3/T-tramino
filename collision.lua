@@ -103,3 +103,9 @@ function tetra:l_col()
 	end
 	return (true)
 end
+
+function tetra:rotate()
+	if (self.shape == 2) then
+		self:r_line()	
+	end
+end

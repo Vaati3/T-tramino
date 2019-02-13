@@ -1,19 +1,51 @@
 
 t_list = {}
 
+line = 0
+
+level = 1
+spd = 1
+c = 0
+
 function _init()
-	add(t_list, tetra:new())
+		palt(0, false)
+		add(t_list, tetra:new())
+		etat = 0
 end
 
 function _draw()
 	cls()
-	for e in all(t_list) do
-		e:draw();
+	if (btn(4)) then
+	  etat = 1
+	end
+	if (etat == 1) then
+	  map(0, 0, 0, 0, 16, 16)
+	  for e in all(t_list) do
+		  e:draw();
+	  end
+	  print ("line")
+	  print (line)
+	  print ("level")
+	  print (level)
+	end
+	if (etat == 0) then
+	   map(16, 0, 0, 0, 16, 16)
 	end
 end
 
 function _update()
-	for e in all(t_list) do
-		e:update();
+ if (etat == 1) then
+	 for e in all(t_list) do
+		 if (e.mv == 1) then
+		 	e:update();
+		 end
+	 end
+	 check_line()
+	 destroy();
+	 if (line % 5 == 0 and c == 1) then
+	 	level += 1
+	 	spd += 0.25
+	 	c = 0
+	 end
 	end
 end

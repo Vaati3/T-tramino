@@ -50,7 +50,7 @@ function tetra:colision()
 end
 
 function tetra:r_col()
-	if (self.x1 >= 120 or self.x2 >= 120 or self.x3 >= 120 or self.x4 >= 120) then
+	if (self.x1 >= self.max_x or self.x2 >= self.max_x or self.x3 >= self.max_x or self.x4 >= self.max_x) then
 		return (false);
 	end
 	for e in all(t_list) do
@@ -86,7 +86,7 @@ end
 
 
 function tetra:l_col()
-	if (self.x1 <= 0 or self.x2 <= 0 or self.x3 <= 0 or self.x4 <= 0) then
+	if (self.x1 <= self.min_x or self.x2 <= self.min_x or self.x3 <= self.min_x or self.x4 <= self.min_x) then
 		return (false);
 	end
 	for e in all(t_list) do
@@ -121,6 +121,8 @@ function tetra:l_col()
 end
 
 function tetra:rotate()
+	self.min_x -= 1
+	self.max_x += 1
 	if (self.shape == 2) then
 		self:r_line()
 	end
@@ -139,4 +141,6 @@ function tetra:rotate()
 	if (self.shape == 7) then
 		self:r_j_shape()
 	end
+	self.min_x += 1
+	self.max_x -= 1
 end

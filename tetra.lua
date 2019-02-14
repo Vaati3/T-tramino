@@ -1,14 +1,16 @@
 
-tetra = {x1, y1, x2, y2, x3, y3, x4, y4, sqr, spd, shape, move, state, d}
+tetra = {x1, y1, x2, y2, x3, y3, x4, y4, sqr, spd, shape, move, state, d, min_x, max_x}
 tetra.__index = tetra
 
-function tetra:new()
+function tetra:new(min_x, max_x)
 	obj = {}
 	setmetatable(obj, tetra)
 	
 	obj.spd = spd;
 	obj.shape = flr(rnd(7)) + 1;
 	obj.state = 0;
+	obj.min_x = min_x
+	obj.max_x = max_x
 	
 	--square
 	if (obj.shape == 1) then
@@ -141,7 +143,7 @@ function tetra:update()
 		self.mv = 0;
 		self:offset()
 		if (self.y1 > 0) then
-			add(t_list, tetra:new());
+			add(t_list, tetra:new(self.min_x, self.max_x));
 		end
 	end
 end

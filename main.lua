@@ -9,7 +9,7 @@ c = 0
 
 function _init()
 		palt(0, false)
-		add(t_list, tetra:new())
+		add(t_list, tetra:new(16, 88))
 		etat = 0
 end
 
@@ -23,10 +23,10 @@ function _draw()
 	  for e in all(t_list) do
 		  e:draw();
 	  end
-	  print ("line")
-	  print (line)
-	  print ("level")
-	  print (level)
+	  print ("line", 105, 10, 7)
+	  print (line, 110, 20, 7)
+	  print ("level", 105, 30, 7)
+	  print (level, 110, 40, 7)
 	end
 	if (etat == 0) then
 	   map(16, 0, 0, 0, 16, 16)

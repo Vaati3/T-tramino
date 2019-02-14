@@ -1,4 +1,3 @@
-
 function clear_line(i)
 	for e in all (t_list) do
 		if (e.y1 == i and e.mv == 0) then 
@@ -45,7 +44,7 @@ function check_line()
 				if (e.y4 == i) then l += 1 end
 			end
 		end
-		if (l >= 16) then
+		if (l >= 10) then
 			clear_line(i)
 			update_line(i)
 			line += 1

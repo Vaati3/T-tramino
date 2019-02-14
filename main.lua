@@ -11,10 +11,12 @@ function _init()
 		palt(0, false)
 		etat = 0
 		key = 0
+		sfx(1)
 end
 
 function init_game()
-	etat = 1
+	etat = 1 
+	music(1)
 	local n = flr(rnd(7)) + 1;
 	if (key == 0) then
 		add(t_list, tetra:new(64, 16, 88, n))

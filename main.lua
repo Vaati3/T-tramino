@@ -19,7 +19,7 @@ function init_game()
 	music(1)
 	local n = flr(rnd(7)) + 1;
 	if (key == 0) then
-		add(t_list, tetra:new(64, 16, 88, n))
+		add(t_list, tetra:new(56, 16, 88, n))
 	end
 	if (key == 1) then
 		add(t_list, tetra:new(32, 0, 56, n))

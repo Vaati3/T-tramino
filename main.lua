@@ -142,9 +142,12 @@ function _update()
 		end
 	end
 	if (etat >= 2 and btnp(4)) then
-			etat = -1
-			for e in all(t_list) do 
-				del(t_list, e);
-			end
+		etat = -1
+		music(0)
+		p1_m = 0
+		p2_m = 0
+		for e in all(t_list) do 
+			del(t_list, e);
+		end
 	end
 end

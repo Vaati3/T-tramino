@@ -70,7 +70,6 @@ function two_player()
 	for e in all(t_list) do
 		 e:draw(false);
 	end
-	print(p2_m, 5, 5)
 	for i = 1, p2_m do
 		map(16, 16, 64, h, 8, 1)
 		h -= 8

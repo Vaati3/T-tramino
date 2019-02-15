@@ -152,6 +152,11 @@ function tetra:update()
 		self:offset()
 		if (self.y1 > 0) then
 			add(t_list, tetra:new(self.x, self.min_x, self.max_x, self.next));
+		else
+			etat = 2
+			if self.min_x == 64 then
+				etat = 3
+			end
 		end
 	end
 end

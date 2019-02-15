@@ -62,12 +62,11 @@ function one_player()
 end
 
 function two_player()
-	local h = 120
+ local h = 120
 	map(0, 16, 0, 0, 16, 16)
 	for e in all(t_list) do
 		 e:draw(false);
 	end
-	print(p2_m, 5, 5)
 	for i = 1, p2_m do
 		map(16, 16, 64, h, 8, 1)
 		h -= 8
@@ -89,6 +88,18 @@ function _draw()
 		two_player();
 		end
 	end
+	if (etat == 3 and key == 1) then
+	  --player 2 win
+	  map(48, 0, 0, 0, 16, 16)
+	end
+	if (etat == 2 and key == 1) then
+	  --player 1 win
+	  map(32, 0, 0, 0, 16, 16)
+	end
+	if (etat == 2 and key == 0) then
+	  --solo
+	  map(64, 0, 0, 0, 16, 16)
+	end 
 	if (etat == 0) then
 	 menu()
 	end
@@ -121,10 +132,19 @@ function two_update()
 end
 
 function _update()
-	if (key == 0) then
-		one_update()
+	if etat == -1 then etat = 0 end
+	if etat == 1 then
+		if (key == 0) then
+			one_update()
+		end
+ 	if (key == 1) then
+	 	two_update();
+		end
 	end
- if (key == 1) then
-	 two_update();
+	if (etat >= 2 and btnp(4)) then
+			etat = -1
+			for e in all(t_list) do 
+				del(t_list, e);
+			end
 	end
 end

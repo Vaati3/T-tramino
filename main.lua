@@ -1,17 +1,17 @@
 
 t_list = {}
 
-line = 0
-
-level = 1
-spd = 1
-c = 0
-
 function _init()
 		palt(0, false)
+		p1_m = 0
+		p2_m = 0
 		etat = 0
 		key = 0
-		sfx(1)
+		level = 1
+		spd = 1
+		lined = 0
+		c = 0
+		music(0)
 end
 
 function init_game()
@@ -56,16 +56,27 @@ function one_player()
 		 e:draw(true);
 	 end
 	 print ("line", 105, 10, 7)
-	 print (line, 110, 20, 7)
+	 print (lined, 110, 20, 7)
 	 print ("level", 105, 30, 7)
 	 print (level, 110, 40, 7)
 end
 
 function two_player()
+	local h = 120
 	map(0, 16, 0, 0, 16, 16)
 	for e in all(t_list) do
 		 e:draw(false);
-	 end
+	end
+	print(p2_m, 5, 5)
+	for i = 1, p2_m do
+		map(16, 16, 64, h, 8, 1)
+		h -= 8
+	end
+	h = 120
+	for i = 1, p1_m do
+		map(16, 16, 0, h, 8, 1)
+		h -= 8
+	end
 end
 
 function _draw()
@@ -91,7 +102,7 @@ function one_update()
 	 end
 	 check_line(10, 16, 88)
 	 destroy();
-	 if (line % 5 == 0 and c == 1) then
+	 if (lined % 5 == 0 and c == 1) then
 	 	level += 1
 	 	spd += 0.25
 	 	c = 0

@@ -1,2 +1,4 @@
 # T-tramino
-Tetris multiplayer
+Tetris in pico8
+
+with multiplayer and solo.

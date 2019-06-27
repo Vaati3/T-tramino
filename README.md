@@ -20,5 +20,5 @@ You can get his path by using the FOLDER command on pico-8.
 
 In pico-8 use the commands to launch t-tramino :
 
-LOAD T-TRAMINO
+LOAD T-TRAMINO\n
 RUN

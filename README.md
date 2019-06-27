@@ -19,6 +19,7 @@ You can get his path by using the FOLDER command on pico-8.
 # Usage
 
 In pico-8 use the commands to launch t-tramino :
-
-LOAD T-TRAMINO\n
+```bash
+LOAD T-TRAMINO
 RUN
+```

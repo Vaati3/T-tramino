@@ -37,4 +37,4 @@ classic mode:
 ![alt text](https://github.com/Vaati3/T-tramino/blob/master/img/screen1.png)
 
 versus mode:
-![alt text](https://github.com/Vaati3/T-tramino/blob/master/img/screen2png)
+![alt text](https://github.com/Vaati3/T-tramino/blob/master/img/screen2.png)
